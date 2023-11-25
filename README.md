@@ -14,15 +14,15 @@ Output when a car does or does not park successfully to the terminal (Ex. "Car w
 Description upon Code Implementation:
   
   1) ParkingLot Class:
-  >>__init__(self, square_footage, spot_size=(8, 12)): Initializes a ParkingLot object with the given square footage and spot size. It calculates the initial           number of available spots based on the spot size and square footage.
-  >> park_car(self, car, spot): Parks a car at the specified spot if the spot is available. Updates the parking map and decreases the available spots.
-  >> generate_parking_map(self): Returns the parking map as a dictionary.
-  >> max_cars(self): Calculates and returns the maximum number of cars that can be parked in the parking lot based on its square footage and spot size.
+  * __init__(self, square_footage, spot_size=(8, 12)): Initializes a ParkingLot object with the given square footage and spot size. It calculates the initial           number of available spots based on the spot size and square footage.
+  * park_car(self, car, spot): Parks a car at the specified spot if the spot is available. Updates the parking map and decreases the available spots.
+  * generate_parking_map(self): Returns the parking map as a dictionary.
+  * max_cars(self): Calculates and returns the maximum number of cars that can be parked in the parking lot based on its square footage and spot size.
 
   2) Car Class:
-  >> __init__(self, license_plate): Initializes a Car object with a given license plate.
-  >> __str__(self): Returns a string representation of the car object.
-  >> park(self, parking_lot): Attempts to park the car in a randomly chosen spot in the parking lot. Returns a status message indicating whether the car was parked      successfully.
+  * __init__(self, license_plate): Initializes a Car object with a given license plate.
+  * __str__(self): Returns a string representation of the car object.
+  *  park(self, parking_lot): Attempts to park the car in a randomly chosen spot in the parking lot. Returns a status message indicating whether the car was parked      successfully.
 
   3) Main Method (main function):
  * Takes input for the square footage of the parking lot.
