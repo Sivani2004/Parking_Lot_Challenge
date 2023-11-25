@@ -19,7 +19,7 @@ Description upon Code Implementation:
   >> generate_parking_map(self): Returns the parking map as a dictionary.
   >> max_cars(self): Calculates and returns the maximum number of cars that can be parked in the parking lot based on its square footage and spot size.
 
-  2)Car Class:
+  2) Car Class:
   >> __init__(self, license_plate): Initializes a Car object with a given license plate.
   >> __str__(self): Returns a string representation of the car object.
   >> park(self, parking_lot): Attempts to park the car in a randomly chosen spot in the parking lot. Returns a status message indicating whether the car was parked      successfully.
