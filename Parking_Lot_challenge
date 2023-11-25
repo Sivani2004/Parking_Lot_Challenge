@@ -1,0 +1,83 @@
+import random
+import json
+
+class ParkingLot:
+    def __init__(self, square_footage, spot_size=(8, 12)):
+        self.square_footage = square_footage
+        self.spot_size = spot_size
+        self.available_spots = square_footage // (spot_size[0] * spot_size[1])
+        self.parking_map = {}
+
+    def park_car(self, car, spot):
+        if spot in self.parking_map:
+            return f"Spot #{spot} is already occupied. Car {car.license_plate} could not be parked."
+        else:
+            self.parking_map[spot] = car.license_plate
+            self.available_spots -= 1
+            return f"Car with license plate {car.license_plate} parked successfully in spot #{spot}."
+
+    def generate_parking_map(self):
+        return self.parking_map
+
+    def max_cars(self):
+        return self.square_footage // (self.spot_size[0] * self.spot_size[1])
+
+class Car:
+    def __init__(self, license_plate):
+        self.license_plate = license_plate
+
+    def __str__(self):
+        return f"Car with license plate {self.license_plate}"
+
+    def park(self, parking_lot):
+        if parking_lot.available_spots > 0:
+            spot = random.randint(1, parking_lot.square_footage // (parking_lot.spot_size[0] * parking_lot.spot_size[1]))
+            return parking_lot.park_car(self, spot)
+        else:
+            return "Parking lot is full. Car could not be parked."
+
+# Main method
+def main():
+    square_footage = int(input("Enter the parking lot size in square footage: "))
+
+    parking_lot = ParkingLot(square_footage)
+    
+    max_cars = parking_lot.max_cars()
+    print(f"Maximum number of cars that can be parked in the given square footage: {max_cars}")
+
+    num_cars = int(input("Enter the number of cars: "))
+
+    # Input all car number plates in one list
+    car_license_plates = input("Enter license plates for all cars separated by space: ").split()
+
+    # Validate if the number of entered license plates matches the number of cars
+    if len(car_license_plates) != num_cars:
+        print("Error: The number of entered license plates does not match the number of cars.")
+        return
+
+    # Create cars using the list of license plates
+    cars = [Car(license_plate) for license_plate in car_license_plates]
+
+    while cars and parking_lot.available_spots > 0:
+        car = random.choice(cars)
+        status = car.park(parking_lot)
+        print(status)
+        if "successfully" in status:
+            cars.remove(car)
+
+    print("Parking lot is full or no more cars to park.")
+
+    # Print the parking map
+    parking_map = parking_lot.generate_parking_map()
+    print("Parking Map:")
+    print(json.dumps(parking_map, indent=2))
+
+    # Optional/Bonus
+    with open("parking_map.json", "w") as file:
+        json.dump(parking_map, file, indent=2)
+
+    # Upload the file to S3 bucket (implement this part based on your S3 setup)
+
+if __name__ == "__main__":
+    main()
+ 
