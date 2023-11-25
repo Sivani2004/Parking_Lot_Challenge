@@ -1,0 +1,43 @@
+Enter the parking lot size in square footage: 2000
+Maximum number of cars that can be parked in the given square footage: 20
+Enter the number of cars: 14
+Enter license plates for all cars separated by space: 1234 2345 3456 4567 5678 6789 22846 35862 357926 49562 495638 29463 
+39658 657484
+Car with license plate 3456 parked successfully in spot #3.
+Car with license plate 29463 parked successfully in spot #18.
+Car with license plate 1234 parked successfully in spot #5.
+Spot #18 is already occupied. Car 495638 could not be parked.
+Car with license plate 357926 parked successfully in spot #20.
+Car with license plate 5678 parked successfully in spot #19.
+Car with license plate 6789 parked successfully in spot #15.
+Car with license plate 495638 parked successfully in spot #16.
+Spot #20 is already occupied. Car 22846 could not be parked.
+Spot #15 is already occupied. Car 22846 could not be parked.
+Car with license plate 39658 parked successfully in spot #14.
+Car with license plate 35862 parked successfully in spot #17.
+Car with license plate 2345 parked successfully in spot #1.
+Car with license plate 49562 parked successfully in spot #7.
+Spot #16 is already occupied. Car 657484 could not be parked.
+Spot #15 is already occupied. Car 22846 could not be parked.
+Car with license plate 22846 parked successfully in spot #8.
+Car with license plate 657484 parked successfully in spot #6.
+Spot #7 is already occupied. Car 4567 could not be parked.
+Car with license plate 4567 parked successfully in spot #2.
+Parking lot is full or no more cars to park.
+Parking Map:
+{
+  "3": "3456",
+  "18": "29463",
+  "5": "1234",
+  "20": "357926",
+  "19": "5678",
+  "15": "6789",
+  "16": "495638",
+  "14": "39658",
+  "17": "35862",
+  "1": "2345",
+  "7": "49562",
+  "8": "22846",
+  "6": "657484",
+  "2": "4567"
+}
